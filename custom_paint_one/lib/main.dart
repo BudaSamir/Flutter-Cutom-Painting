@@ -30,8 +30,8 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => const TabBarWidget(
         tabs: [
-          Tab(icon: Icon(Icons.circle), text: 'arc'),
           Tab(icon: Icon(Icons.circle), text: 'AnimatedCircle'),
+          Tab(icon: Icon(Icons.circle), text: 'arc'),
           Tab(icon: Icon(Icons.stacked_line_chart), text: 'Line'),
           Tab(icon: Icon(Icons.crop_landscape), text: 'Rectangle'),
           Tab(icon: Icon(Icons.crop_square), text: 'Rounded Rectangle'),
@@ -41,8 +41,8 @@ class MainPage extends StatelessWidget {
           Tab(icon: Icon(Icons.image), text: 'Image'),
         ],
         children: [
-          AnimatedArcPage(),
           RadialProgressWidget(),
+          AnimatedArcPage(),
           LinePaintPage(),
           RectanglePaintPage(),
           RoundedRectanglePaintPage(),

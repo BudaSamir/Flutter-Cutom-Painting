@@ -22,6 +22,7 @@ class _RadialProgressWidgetState extends State<RadialProgressWidget> {
       if (value <= percentage) {
         setState(() {
           value += speed;
+          print(value);
         });
       }
     });
@@ -43,14 +44,26 @@ class _RadialProgressWidgetState extends State<RadialProgressWidget> {
           width: 300,
           height: 300,
           color: Colors.white,
-          child: CustomPaint(
-            painter: RadialProgressPainter(value),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Transform(
+                transform: Matrix4.rotationY(pi),
+                child: CustomPaint(
+                  painter: RadialProgressPainter(value),
+                ),
+              ),
+              CustomPaint(
+                painter: RadialProgressPainter(value),
+              ),
+            ],
           ),
         ),
       ),
     );
   }
 }
+//
 
 class RadialProgressPainter extends CustomPainter {
   double percentage;
@@ -59,8 +72,8 @@ class RadialProgressPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final c = Offset(size.width / 2.0, size.height / 2.0);
     final rect = Rect.fromCenter(center: c, width: 200.0, height: 200.0);
-    final rect2 = Rect.fromPoints(Offset(size.width * 0.5, size.height * 0.1),
-        Offset(size.width * 0.47, size.height * 0.9));
+    // final rect2 = Rect.fromPoints(Offset(size.width * 0.5, size.height * 0.1),
+    //     Offset(size.width * 0.47, size.height * 0.9));
     // drawGuide(canvas, c, 100.0);
     drawArc(canvas, rect);
   }
